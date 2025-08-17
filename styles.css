@@ -1,0 +1,211 @@
+/* ====== Reset + base ====== */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, Arial, sans-serif;
+  color: #111;
+  background: #f6f6f6;
+}
+
+/* ====== Menú ====== */
+header { background: white; }
+nav.menu ul{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:8px 16px;
+  list-style:none;
+  padding:10px 16px;
+  margin:0;
+}
+nav.menu a{
+  color:#fff;
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:8px;
+}
+nav.menu a:hover,
+nav.menu a.active{ background:#333; }
+
+/* ====== Secciones genéricas ====== */
+main{ flex:1; }
+.seccion{ max-width:1200px; margin:24px auto; padding:0 16px; text-align:center; }
+.hero{ text-align:center; padding:28px 16px; }
+.hero h1{ margin:0 0 6px; }
+.hero p{ margin:0; color:#555; }
+
+/* ====== Galería (Inicio) ====== */
+.galeria{ padding:24px 16px; max-width:1200px; margin:0 auto; }
+.galeria h2{ text-align:center; margin:0 0 16px; }
+
+.imagenes{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-content:start;
+  gap:16px;
+}
+
+.card{
+  flex:1 1 clamp(180px, 28vw, 260px);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  padding:12px;
+  background:#fff;
+}
+.card img{
+  width:100%;
+  height:clamp(140px, 18vw, 200px); /* 🔧 controla altura uniforme */
+  object-fit:contain;
+  border-radius:8px;
+  background:#fafafa;
+}
+.card h3{ font-size:1rem; margin:0; }
+.card p{ margin:0; color:#555; }
+.card .precio{ margin-top:auto; font-weight:700; }
+.destacado{ order:-1; }
+
+/* ====== Páginas: Productos / Ofertas (grillas de cards simples) ====== */
+.productos-grid, .ofertas-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:20px;
+  margin:20px auto 24px;
+  max-width:1200px;
+  padding:0 16px;
+}
+.producto, .oferta{
+  background:#fff;
+  border:1px solid #e5e5e5;
+  border-radius:12px;
+  padding:15px;
+  text-align:center;
+}
+.producto img, .oferta img{
+  max-width:100%;
+  height:auto;
+  display:block;
+  border-radius:8px;
+  margin:0 auto 10px;
+  background:#fafafa;
+}
+
+/* ====== PÁGINA Ofertas: imágenes sueltas (si usas <main class="ofertas">) ====== */
+.ofertas{
+  max-width:1200px;
+  margin:24px auto;
+  padding:0 16px;
+  text-align:center;
+}
+.ofertas img{
+  width:100%;
+  max-width:280px; /* 🔧 evita imágenes gigantes */
+  height:auto;
+  display:block;
+  margin:0 auto 16px;
+  border-radius:8px;
+  object-fit:contain;
+}
+
+/* ====== Botón reutilizable ====== */
+.actions{ text-align:center; margin:14px 0 30px; }
+.btn-volver{
+  display:inline-block;
+  padding:10px 16px;
+  background:#111;
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+.btn-volver:hover{ background:#333; }
+
+/* ====== Formulario de contacto ====== */
+.form-contacto{
+  display:flex;
+  flex-direction:column;
+  max-width:400px;
+  margin:20px auto;
+  text-align:left;
+}
+.form-contacto label{ margin:10px 0 5px; }
+.form-contacto input, .form-contacto textarea{
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font:inherit;
+}
+.form-contacto button{
+  margin-top:15px;
+  padding:10px 14px;
+  border:0;
+  border-radius:8px;
+  background:#111;
+  color:#fff;
+  cursor:pointer;
+}
+.form-contacto button:hover{ background:#333; }
+
+/* ====== Footer (sticky) ====== */
+.site-footer{
+  margin-top:auto;
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:14px 16px;
+  font-size:.95rem;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px){
+  nav.menu ul{ flex-direction:column; }
+  .card{ flex-basis: clamp(220px, 80vw, 420px); }
+}
+
+/* fallback por si algún archivo no usa <header> */
+nav.menu { background:#111; }
+
+
+/* ==== Fix móvil: evitar desbordes y forzar 1 columna ==== */
+img, svg { max-width: 100%; height: auto; }
+
+/* Si alguna caja se pasa por 1px, prevenimos scroll lateral */
+html, body { overflow-x: hidden; }
+
+/* Productos / Ofertas: 1 columna en pantallas pequeñas */
+@media (max-width: 600px) {
+  .productos-grid,
+  .ofertas-grid {
+    grid-template-columns: 1fr;   /* ← una sola columna */
+    gap: 16px;
+    padding: 0 12px;              /* menos padding lateral */
+  }
+
+  .producto,
+  .oferta {
+    padding: 12px;
+  }
+}
+
+/* Galería del inicio: tarjetas a 100% en móviles chicos */
+@media (max-width: 480px) {
+  .imagenes { gap: 12px; }
+  .card { flex: 1 1 100%; }       /* ← cada card ocupa todo el ancho */
+  .card img {
+    height: 160px;                /* altura controlada en móvil */
+  }
+}
+
+/* Botón volver: que nunca se salga */
+@media (max-width: 480px) {
+  .btn-volver { display: inline-block; max-width: 100%; }
+  .actions { padding: 0 12px; }
+}
