@@ -1,4 +1,8 @@
 /* ====== Reset + base ====== */
+:root {
+  --color-primario:#111;
+  --color-secundario:#333;
+}
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
 html { scroll-behavior: smooth; }
@@ -7,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: system-ui, Arial, sans-serif;
-  color: #111;
+  color: var(--color-primario);
   background: #f6f6f6;
 }
 
@@ -30,7 +34,7 @@ nav.menu a{
   border-radius:8px;
 }
 nav.menu a:hover,
-nav.menu a.active{ background:#333; }
+nav.menu a.active{ background:var(--color-secundario); }
 
 /* ====== Secciones genéricas ====== */
 main{ flex:1; }
@@ -120,13 +124,13 @@ main{ flex:1; }
 .btn-volver{
   display:inline-block;
   padding:10px 16px;
-  background:#111;
+  background:var(--color-primario);
   color:#fff;
   border-radius:8px;
   text-decoration:none;
   font-weight:600;
 }
-.btn-volver:hover{ background:#333; }
+.btn-volver:hover{ background:var(--color-secundario); }
 
 /* ====== Formulario de contacto ====== */
 .form-contacto{
@@ -148,16 +152,16 @@ main{ flex:1; }
   padding:10px 14px;
   border:0;
   border-radius:8px;
-  background:#111;
+  background:var(--color-primario);
   color:#fff;
   cursor:pointer;
 }
-.form-contacto button:hover{ background:#333; }
+.form-contacto button:hover{ background:var(--color-secundario); }
 
 /* ====== Footer (sticky) ====== */
 .site-footer{
   margin-top:auto;
-  background:#111;
+  background:var(--color-primario);
   color:#fff;
   text-align:center;
   padding:14px 16px;
@@ -171,7 +175,7 @@ main{ flex:1; }
 }
 
 /* fallback por si algún archivo no usa <header> */
-nav.menu { background:#111; }
+nav.menu { background:var(--color-primario); }
 
 
 /* ==== Fix móvil: evitar desbordes y forzar 1 columna ==== */
