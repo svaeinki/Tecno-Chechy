@@ -98,7 +98,7 @@ main{ flex:1; }
   background:#fafafa;
 }
 
-/* ====== PÁGINA Ofertas: imágenes sueltas (si usas <main class="ofertas">) ====== */
+
 .ofertas{
   max-width:1200px;
   margin:24px auto;
