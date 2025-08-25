@@ -199,17 +199,13 @@ html, body { overflow-x: hidden; }
   }
 }
 
-/* Galería del inicio: tarjetas a 100% en móviles chicos */
 @media (max-width: 480px) {
+  /* Galería del inicio: tarjetas a 100% en móviles chicos */
   .imagenes { gap: 12px; }
   .card { flex: 1 1 100%; }       /* ← cada card ocupa todo el ancho */
-  .card img {
-    height: 160px;                /* altura controlada en móvil */
-  }
-}
+  .card img { height: 160px; }    /* altura controlada en móvil */
 
-/* Botón volver: que nunca se salga */
-@media (max-width: 480px) {
+  /* Botón volver: que nunca se salga */
   .btn-volver { display: inline-block; max-width: 100%; }
   .actions { padding: 0 12px; }
 }
