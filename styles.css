@@ -35,6 +35,8 @@ nav.menu a{
   border-radius:8px;
 }
 nav.menu a:hover,
+nav.menu a:focus,
+nav.menu a:focus-visible,
 nav.menu a.active{ background:var(--color-secundario); }
 
 /* ====== Secciones genéricas ====== */
